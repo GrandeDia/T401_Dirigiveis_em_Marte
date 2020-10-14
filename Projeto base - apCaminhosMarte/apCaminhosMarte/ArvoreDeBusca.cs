@@ -8,7 +8,7 @@ using System.Threading;
 namespace apCaminhosMarte
 {
     class ArvoreDeBusca<Dado>  // : IComparable<NoArvore<Dado>> 
-                                where Dado : IComparable<Dado>, IRegistro, new()
+                                where Dado : IComparable<Dado>, new()
     {
         NoArvore<Dado> raiz,
                        atual,       // indica o nó que está sendo visitado no momento
@@ -251,7 +251,7 @@ namespace apCaminhosMarte
             return EscreverAntecessores(Raiz, procurado);
         }
 
-        /*public void DesenharArvore(bool primeiraVez, NoArvore<Funcionario> raiz,
+        public void DesenharArvore(bool primeiraVez, NoArvore<Cidade> raiz,
                                   int x, int y, double angulo, double incremento,
                                   double comprimento, Graphics g)
         {
@@ -276,7 +276,7 @@ namespace apCaminhosMarte
                     new SolidBrush(Color.Yellow), xf - 23, yf - 7);
 
             }
-        }*/
+        }
 
         private bool Existe(NoArvore<Dado> local, Dado procurado)
         {
@@ -355,56 +355,7 @@ namespace apCaminhosMarte
                 }
         }
 
-            public void LerArquivoDeRegistros(string nomeArquivo)
-        {
-            raiz = null;
-            Dado dado = new Dado();
-            var origem = new FileStream(nomeArquivo, FileMode.OpenOrCreate);
-            var arquivo = new BinaryReader(origem);
-            MessageBox.Show("Tamanho do arquivo =" + origem.Length+"\n\nTamanho do registro = "+dado.TamanhoRegistro);
-            int posicaoFinal = (int)origem.Length / dado.TamanhoRegistro - 1;
-            Particionar(0, posicaoFinal,  ref raiz);
-            origem.Close();
-
-            void Particionar(long inicio, long fim, ref NoArvore<Dado> atual)
-            {
-                if (inicio <= fim)
-                {
-                    long meio = (inicio + fim) / 2;
-
-                    dado = new Dado();       // cria um objeto para armazenar os dados
-                    dado.LerRegistro(arquivo, meio); // 
-                    atual = new NoArvore<Dado>(dado);
-                    var novoEsq = atual.Esq;
-                    Particionar(inicio, meio - 1, ref novoEsq);   // Particiona à esquerda 
-                    atual.Esq = novoEsq;
-                    var novoDir = atual.Dir;
-                    Particionar(meio + 1, fim, ref novoDir);        // Particiona à direita  
-                    atual.Dir = novoDir;
-                }
-            }
-        
-        }
-
-        public void GravarArquivoDeRegistros(string nomeArquivo)
-        {
-            var destino = new FileStream(nomeArquivo, FileMode.Create);
-            var arquivo = new BinaryWriter(destino);
-            GravarInOrdem(raiz);
-            arquivo.Close();
-
-            void GravarInOrdem(NoArvore<Dado> r)
-            {
-                if (r != null)
-                {
-                    GravarInOrdem(r.Esq);
-
-                    r.Info.GravarRegistro(arquivo);
-
-                    GravarInOrdem(r.Dir);
-                }
-            }
-        }
+            
 
         public void Inserir(Dado novosDados)
         {
