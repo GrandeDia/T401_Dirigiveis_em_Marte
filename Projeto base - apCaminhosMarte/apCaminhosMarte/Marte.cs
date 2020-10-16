@@ -12,7 +12,7 @@ namespace apCaminhosMarte
         private string cidadeMarteArquivo, 
             caminhosEntreMarteArquivo;
 
-        private Caminho[,] MatrizAdjacenteDeCaminhos;
+        private Caminho[,] matrizAdjacenteDeCaminhos;
         private ArvoreDeBusca<Cidade> Cidades;
 
 
@@ -40,7 +40,7 @@ namespace apCaminhosMarte
             }
 
             
-            MatrizAdjacenteDeCaminhos = new Caminho[numeroDeCidades, numeroDeCidades];
+            matrizAdjacenteDeCaminhos = new Caminho[numeroDeCidades, numeroDeCidades];
 
             while (!LeitorCaminho.EndOfStream)
             {
@@ -48,6 +48,10 @@ namespace apCaminhosMarte
                 Caminho caminho = new Caminho(linha);
                 MatrizAdjacenteDeCaminhos[caminho.getIdDestino(), caminho.getIdDestino()] = caminho;
             }
+        }
+        public Caminho[ ,] MatrizAdjacenteDeCaminhos
+        {
+            get => this.matrizAdjacenteDeCaminhos;
         }
     }
 }

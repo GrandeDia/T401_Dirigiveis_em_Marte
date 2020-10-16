@@ -84,7 +84,10 @@ namespace apCaminhosMarte
         {
             return 1;
         }
-
+        public int Tempo
+        {
+            get => this.tempo;
+        }
 
     }
 }

@@ -8,50 +8,50 @@ namespace apCaminhosMarte
 {
     class MarteGPS
     {
-        private Cidade Origem, Destino;
-        private Caminho[,] MatrizAdjacenteDeCaminhos;
-        private bool[] PassamosAqui;
-        private List<List<Caminho>> Caminhos;
-        private List<Caminho> Aux;
+        private int idOrigem, idDestino;
+        private Caminho[,] matrizAdjacenteDeCaminhos;
+        private bool[] passamosAqui;
+        private List<List<Caminho>> caminhos;
+        private List<Caminho> aux;
 
-        public MarteGPS(Cidade Origem, Cidade Destino, Caminho[,] MatrizAdjacenteDeCaminhos)
+        public MarteGPS(int idOrigem, int idDestino, Caminho[,] matrizAdjacenteDeCaminhos)
         {
-            if (Origem != null && Destino != null && MatrizAdjacenteDeCaminhos != null)
+            if (idOrigem != null && idDestino != null && matrizAdjacenteDeCaminhos != null)
                 throw new Exception("Erro, um ou mais parametros nullos");
 
-            this.Origem = Origem;
-            this.Destino = Destino;
-            this.MatrizAdjacenteDeCaminhos = MatrizAdjacenteDeCaminhos;
+            this.idOrigem = idOrigem;
+            this.idDestino = idDestino;
+            this.matrizAdjacenteDeCaminhos = matrizAdjacenteDeCaminhos;
         }
 
         public List<List<Caminho>> EncontrarCaminhos()
         {
-            Caminhos = new List<List<Caminho>>();
+            caminhos = new List<List<Caminho>>();
 
-            EncontrarCaminhosRepeticao(Origem.GetIdCidade());
+            EncontrarCaminhosRepeticao(idOrigem);
 
-            if (this.Caminhos.Count() == 0)
+            if (this.caminhos.Count() == 0)
                 throw new Exception("Não há caminhos");
 
-            return Caminhos;
+            return caminhos;
         }
 
-        private void EncontrarCaminhosRepeticao(int idCidadeOrigem)
+        private void EncontrarCaminhosRepeticao(int idCidadeAtual)
         {
-            for (int i = 0; i < MatrizAdjacenteDeCaminhos.GetLength(0); i++)
+            for (int i = 0; i < matrizAdjacenteDeCaminhos.GetLength(0); i++)
             {
-                Caminho caminho = this.MatrizAdjacenteDeCaminhos[idCidadeOrigem, i];
-                if(caminho != null || !PassamosAqui[i])
+                Caminho caminho = this.matrizAdjacenteDeCaminhos[idCidadeAtual, i];
+                if(caminho != null && !passamosAqui[i])
                 {
-                    Aux.Add(caminho);
+                    aux.Add(caminho);
 
-                    if (i == this.Destino.GetIdCidade())
-                        Caminhos.Add(Aux);
+                    if (i == this.idDestino)
+                        caminhos.Add(aux);
                     else
                     {
-                        PassamosAqui[i] = true;
+                        passamosAqui[caminho.getIdDestino()] = true;
                         EncontrarCaminhosRepeticao(caminho.getIdDestino());
-                        PassamosAqui[i] = true;
+                        passamosAqui[caminho.getIdDestino()] = false;
                     }
                 }    
             }
