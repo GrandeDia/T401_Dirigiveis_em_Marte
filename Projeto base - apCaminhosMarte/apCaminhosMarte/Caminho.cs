@@ -33,7 +33,7 @@ namespace apCaminhosMarte
             if (caminhoLinha != null)
                 throw new Exception("O caminho não pode ser nullo");
             idCidadeDestino = int.Parse(caminhoLinha.Substring(0, tamanhoCidadeO).Trim());
-            idCidadeDestino = int.Parse(caminhoLinha.Substring(tamanhoCidadeO, tamanhoCidadeD).Trim());
+            idCidadeOrigem = int.Parse(caminhoLinha.Substring(tamanhoCidadeO, tamanhoCidadeD).Trim());
             distancia = int.Parse(caminhoLinha.Substring(tamanhoCidadeO + tamanhoCidadeD, tamanhoDistancia));
             tempo = int.Parse(caminhoLinha.Substring(tamanhoCidadeO + tamanhoCidadeD + tamanhoDistancia, tamanhoTempo));
             custo = int.Parse(caminhoLinha.Substring(tamanhoCidadeO + tamanhoCidadeD + tamanhoDistancia + tamanhoTempo, tamanhoCusto));

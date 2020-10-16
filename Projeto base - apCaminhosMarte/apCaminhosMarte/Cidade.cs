@@ -64,6 +64,10 @@ namespace apCaminhosMarte
             }
         }
 
+        public int GetIdCidade()
+        {
+            return IdCidade;
+        }
 
         //verificar depois
         public bool Equals(Cidade cidade)

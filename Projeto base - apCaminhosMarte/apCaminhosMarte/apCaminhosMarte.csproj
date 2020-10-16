@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="ListaSimples.cs" />
     <Compile Include="Marte.cs" />
+    <Compile Include="MarteGPS.cs" />
     <Compile Include="NoArvore.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

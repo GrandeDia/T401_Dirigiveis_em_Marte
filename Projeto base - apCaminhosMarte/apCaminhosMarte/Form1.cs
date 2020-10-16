@@ -12,9 +12,11 @@ namespace apCaminhosMarte
 {
     public partial class Form1 : Form
     {
+        Marte marte;
         public Form1()
         {
             InitializeComponent();
+            marte = new Marte("CidadesMarte.txt", "CaminhosEntreCidadesMarte.txt");
         }
 
         private void TxtCaminhos_DoubleClick(object sender, EventArgs e)

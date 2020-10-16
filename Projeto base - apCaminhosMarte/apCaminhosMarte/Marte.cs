@@ -48,10 +48,6 @@ namespace apCaminhosMarte
                 Caminho caminho = new Caminho(linha);
                 MatrizAdjacenteDeCaminhos[caminho.getIdDestino(), caminho.getIdDestino()] = caminho;
             }
-
-            
-
-            
         }
     }
 }
