@@ -9,11 +9,7 @@ namespace apCaminhosMarte
 {
     class Cidade : IComparable<Cidade>
     {
-        int IdCidade, CoordenadaX, CoordenadaY,
-            TamanhoId = 3,
-            TamanhoX = 5,
-            TamanhoY = 5,
-            TamanhoNome = 15;
+        int IdCidade, CoordenadaX, CoordenadaY;
 
         string NomeCidade;
 
@@ -24,10 +20,12 @@ namespace apCaminhosMarte
 
         public Cidade(string linha)
         {
-            IdCidade = int.Parse(linha.Substring(0, TamanhoId).Trim());
-            NomeCidade = linha.Substring(TamanhoId, TamanhoNome).Trim();
-            CoordenadaX = int.Parse(linha.Substring(TamanhoId + TamanhoNome, CoordenadaX).Trim());
-            CoordenadaY = int.Parse(linha.Substring(TamanhoId + TamanhoNome + TamanhoX, TamanhoY).Trim());
+            if (linha == null || linha == "")
+                throw new Exception("A linha passada nao pode ser nula ou vazia");
+            IdCidade = int.Parse(linha.Substring(0, 3).Trim());
+            NomeCidade = linha.Substring(3, 16).Trim();
+            CoordenadaX = int.Parse(linha.Substring(19, 5).Trim());
+            CoordenadaY = int.Parse(linha.Substring(24, 4).Trim());
         }
 
         /*public Cidade(int IdCidade, int CoordenadaX, int CoordenadaY, string NomeCidade)
@@ -74,21 +72,12 @@ namespace apCaminhosMarte
         {
             if (this.IdCidade != cidade.IdCidade)
                 return false;
-            if (this.TamanhoId != cidade.TamanhoId)
-                return false;
             if (!this.NomeCidade.Equals(cidade.NomeCidade))
-                return false;
-            if (this.TamanhoNome != cidade.TamanhoNome)
                 return false;
             if (this.CoordenadaX != cidade.CoordenadaX)
                 return false;
-            if (this.TamanhoX != cidade.TamanhoX)
-                return false;
             if (this.CoordenadaY != cidade.CoordenadaY)
                 return false;
-            if (this.TamanhoY != cidade.TamanhoY)
-                return false;
-
             return true;
         }
 
@@ -96,17 +85,9 @@ namespace apCaminhosMarte
         {
             string ret = "";
             ret += "O Id da cidade é " + IdCidade.ToString() + "\n";
-            ret += "O tamanho do Id da cidade é " + TamanhoId.ToString() + "\n";
-
             ret += "O nome da cidade é " + NomeCidade + "\n";
-            ret += "O tamanho do nome da cidade é " + TamanhoNome.ToString() + "\n";
-
             ret += "A coordenada X é " + CoordenadaX.ToString() + "\n";
-            ret += "O tamanho da coordenada X é " + TamanhoX.ToString() + "\n";
-
-            ret += "A coordenada Y é " + CoordenadaY.ToString() + "\n";
-            ret += "O Id da cidade é " + TamanhoY.ToString() + "\n";
-
+            ret += "A coordenada Y é " + CoordenadaY.ToString();
             return ret;
         }
 
@@ -115,13 +96,9 @@ namespace apCaminhosMarte
             int ret = 19;
 
             ret = ret * 7 + IdCidade.GetHashCode();
-            ret = ret * 7 + TamanhoId.GetHashCode();
             ret = ret * 7 + NomeCidade.GetHashCode();
-            ret = ret * 7 + TamanhoNome.GetHashCode();
             ret = ret * 7 + CoordenadaX.GetHashCode();
-            ret = ret * 7 + TamanhoX.GetHashCode();
             ret = ret * 7 + CoordenadaY.GetHashCode();
-            ret = ret * 7 + TamanhoY.GetHashCode();
 
             if (ret < 0)
                 ret = -ret;

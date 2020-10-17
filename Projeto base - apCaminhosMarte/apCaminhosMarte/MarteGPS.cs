@@ -16,18 +16,19 @@ namespace apCaminhosMarte
 
         public MarteGPS(int idOrigem, int idDestino, Caminho[,] matrizAdjacenteDeCaminhos)
         {
-            if (idOrigem != null && idDestino != null && matrizAdjacenteDeCaminhos != null)
+            if (idOrigem < 0 && idDestino < 0 && matrizAdjacenteDeCaminhos != null)
                 throw new Exception("Erro, um ou mais parametros nullos");
 
             this.idOrigem = idOrigem;
             this.idDestino = idDestino;
             this.matrizAdjacenteDeCaminhos = matrizAdjacenteDeCaminhos;
+            this.passamosAqui = new bool[matrizAdjacenteDeCaminhos.GetLength(0)];
+            caminhos = new List<List<Caminho>>();
+            this.aux = new List<Caminho>();
         }
 
         public List<List<Caminho>> EncontrarCaminhos()
         {
-            caminhos = new List<List<Caminho>>();
-
             EncontrarCaminhosRepeticao(idOrigem);
 
             if (this.caminhos.Count() == 0)
@@ -53,6 +54,7 @@ namespace apCaminhosMarte
                         EncontrarCaminhosRepeticao(caminho.getIdDestino());
                         passamosAqui[caminho.getIdDestino()] = false;
                     }
+                    aux.RemoveAt(aux.Count-1);
                 }    
             }
         }

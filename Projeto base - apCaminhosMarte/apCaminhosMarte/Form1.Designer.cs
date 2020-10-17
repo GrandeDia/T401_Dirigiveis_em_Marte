@@ -270,7 +270,21 @@
             "  3 - Bakhuysen       ",
             "  4 - Bradbury ",
             "  5 - Burroughs       ",
-            "  6 - Cairo            "});
+            "  6 - Cairo            ",
+            "  7 - Dumont",
+            "  8 - Echus Overlook",
+            "  9 - Esperança",
+            "10 - Gondor",
+            "11 - Lakefront",
+            "12 - Lowell",
+            "13 - Moria",
+            "14 - Nicosia",
+            "15 - Odesa",
+            "16 - Perseverança",
+            "17 - Rowan",
+            "18 - Senzeni Na",
+            "19 - Sheffield",
+            "20 - Temperança"});
             this.lsbDestino.Location = new System.Drawing.Point(1038, 129);
             this.lsbDestino.Name = "lsbDestino";
             this.lsbDestino.Size = new System.Drawing.Size(177, 84);
@@ -299,7 +313,21 @@
             "  3 - Bakhuysen       ",
             "  4 - Bradbury ",
             "  5 - Burroughs       ",
-            "  6 - Cairo            "});
+            "  6 - Cairo      ",
+            "  7 - Dumont",
+            "  8 - Echus Overlook",
+            "  9 - Esperança",
+            "10 - Gondor",
+            "11 - Lakefront",
+            "12 - Lowell",
+            "13 - Moria",
+            "14 - Nicosia",
+            "15 - Odesa",
+            "16 - Perseverança",
+            "17 - Rowan",
+            "18 - Senzeni Na",
+            "19 - Sheffield",
+            "20 - Temperança"});
             this.lsbOrigem.Location = new System.Drawing.Point(1038, 25);
             this.lsbOrigem.Name = "lsbOrigem";
             this.lsbOrigem.Size = new System.Drawing.Size(177, 84);

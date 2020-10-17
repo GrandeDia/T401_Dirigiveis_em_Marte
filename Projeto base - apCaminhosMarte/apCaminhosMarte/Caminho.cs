@@ -13,16 +13,7 @@ namespace apCaminhosMarte
          * 19164 - Bruno Arnone franchi
          * 19188 - Mateus Stolze Vazquez 
          */
-        private int idCidadeOrigem,
-                    idCidadeDestino,
-                    distancia,
-                    tempo,
-                    custo,
-            tamanhoCidadeO = 3,
-            tamanhoCidadeD = 3,
-            tamanhoDistancia = 5,
-            tamanhoTempo = 4,
-            tamanhoCusto = 5;
+        private int idCidadeOrigem, idCidadeDestino, distancia, tempo, custo;
 
 
         public Caminho()
@@ -30,13 +21,13 @@ namespace apCaminhosMarte
         }
         public Caminho(string caminhoLinha)
         {
-            if (caminhoLinha != null)
-                throw new Exception("O caminho não pode ser nullo");
-            idCidadeDestino = int.Parse(caminhoLinha.Substring(0, tamanhoCidadeO).Trim());
-            idCidadeOrigem = int.Parse(caminhoLinha.Substring(tamanhoCidadeO, tamanhoCidadeD).Trim());
-            distancia = int.Parse(caminhoLinha.Substring(tamanhoCidadeO + tamanhoCidadeD, tamanhoDistancia));
-            tempo = int.Parse(caminhoLinha.Substring(tamanhoCidadeO + tamanhoCidadeD + tamanhoDistancia, tamanhoTempo));
-            custo = int.Parse(caminhoLinha.Substring(tamanhoCidadeO + tamanhoCidadeD + tamanhoDistancia + tamanhoTempo, tamanhoCusto));
+            if (caminhoLinha == null || caminhoLinha == "")
+                throw new Exception("O caminho não pode ser nulo");
+            idCidadeOrigem = int.Parse(caminhoLinha.Substring(0, 3).Trim());
+            idCidadeDestino = int.Parse(caminhoLinha.Substring(3, 3).Trim());
+            distancia = int.Parse(caminhoLinha.Substring(6, 5));
+            tempo = int.Parse(caminhoLinha.Substring(11, 4));
+            custo = int.Parse(caminhoLinha.Substring(15, 5));
         }
 
         /*public Caminho(int idCidadeOrigem, int idCidadeDestino, int distancia, int tempo, int custo)
@@ -88,6 +79,5 @@ namespace apCaminhosMarte
         {
             get => this.tempo;
         }
-
     }
 }

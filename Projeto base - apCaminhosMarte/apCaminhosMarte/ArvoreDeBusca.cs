@@ -327,6 +327,8 @@ namespace apCaminhosMarte
 
         public void Incluir(Dado dadoLido)
         {
+            if (dadoLido == null)
+                throw new Exception("O dado passado nao pode ser nulo");
             Incluir(ref raiz, dadoLido);
         }
 

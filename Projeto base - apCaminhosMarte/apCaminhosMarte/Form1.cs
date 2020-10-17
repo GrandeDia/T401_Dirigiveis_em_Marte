@@ -35,12 +35,13 @@ namespace apCaminhosMarte
                 int menorTempo = int.MaxValue;
                 int maiorNumCidades = 0;
                 List<Caminho> menorCaminho = new List<Caminho>();
+                dgvCaminhos.RowCount = listaCaminhos.Count;
                 foreach (List<Caminho> caminho in listaCaminhos)
                 {
                     if(caminho.Count > maiorNumCidades)
                     {
                         maiorNumCidades = caminho.Count;
-                        dgvCaminhos.RowCount = maiorNumCidades;
+                        dgvCaminhos.ColumnCount = maiorNumCidades;
                     }
                     int tempoPercursoAtual = 0;
                     foreach (Caminho cidade in caminho)
@@ -57,7 +58,7 @@ namespace apCaminhosMarte
                     coluna = 0;
                     linha++;
                 }
-                dgvMelhorCaminho.RowCount = menorCaminho.Count;
+                dgvMelhorCaminho.ColumnCount = menorCaminho.Count;
                 foreach(Caminho cidade in menorCaminho)
                 {
                     dgvMelhorCaminho[coluna, 0].Value = cidade;

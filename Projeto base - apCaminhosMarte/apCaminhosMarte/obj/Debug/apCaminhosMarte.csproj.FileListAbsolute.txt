@@ -8,3 +8,13 @@ D:\Chico\0Cotuca\anos letivos\2019\1o semestre\estDad\projetos\Projeto3_Marte\ap
 D:\Chico\0Cotuca\anos letivos\2019\1o semestre\estDad\projetos\Projeto3_Marte\apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.csproj.CoreCompileInputs.cache
 D:\Chico\0Cotuca\anos letivos\2019\1o semestre\estDad\projetos\Projeto3_Marte\apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.exe
 D:\Chico\0Cotuca\anos letivos\2019\1o semestre\estDad\projetos\Projeto3_Marte\apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.pdb
+C:\Bruno\Técnico\T401\T401_Dirigiveis_em_Marte\Projeto base - apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.csprojAssemblyReference.cache
+C:\Bruno\Técnico\T401\T401_Dirigiveis_em_Marte\Projeto base - apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.Form1.resources
+C:\Bruno\Técnico\T401\T401_Dirigiveis_em_Marte\Projeto base - apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.Properties.Resources.resources
+C:\Bruno\Técnico\T401\T401_Dirigiveis_em_Marte\Projeto base - apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.csproj.GenerateResource.cache
+C:\Bruno\Técnico\T401\T401_Dirigiveis_em_Marte\Projeto base - apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.csproj.CoreCompileInputs.cache
+C:\Bruno\Técnico\T401\T401_Dirigiveis_em_Marte\Projeto base - apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.exe
+C:\Bruno\Técnico\T401\T401_Dirigiveis_em_Marte\Projeto base - apCaminhosMarte\apCaminhosMarte\obj\Debug\apCaminhosMarte.pdb
+C:\Bruno\Técnico\T401\T401_Dirigiveis_em_Marte\Projeto base - apCaminhosMarte\apCaminhosMarte\bin\Debug\apCaminhosMarte.exe.config
+C:\Bruno\Técnico\T401\T401_Dirigiveis_em_Marte\Projeto base - apCaminhosMarte\apCaminhosMarte\bin\Debug\apCaminhosMarte.exe
+C:\Bruno\Técnico\T401\T401_Dirigiveis_em_Marte\Projeto base - apCaminhosMarte\apCaminhosMarte\bin\Debug\apCaminhosMarte.pdb

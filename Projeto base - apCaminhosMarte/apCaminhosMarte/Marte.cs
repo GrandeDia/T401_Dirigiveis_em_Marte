@@ -13,7 +13,7 @@ namespace apCaminhosMarte
             caminhosEntreMarteArquivo;
 
         private Caminho[,] matrizAdjacenteDeCaminhos;
-        private ArvoreDeBusca<Cidade> Cidades;
+        private ArvoreDeBusca<Cidade> cidades;
 
 
         public Marte(string cidadeMarteArquivo, string caminhosEntreMarteArquivo)
@@ -28,14 +28,15 @@ namespace apCaminhosMarte
             this.caminhosEntreMarteArquivo = caminhosEntreMarteArquivo;
 
             StreamReader LeitorCidade = new StreamReader(cidadeMarteArquivo);
-            StreamReader LeitorCaminho = new StreamReader(cidadeMarteArquivo);
+            StreamReader LeitorCaminho = new StreamReader(caminhosEntreMarteArquivo);
 
             int numeroDeCidades = 0;
+            cidades = new ArvoreDeBusca<Cidade>();
             while (!LeitorCidade.EndOfStream)
             {
                 string linha = LeitorCidade.ReadLine();
                 Cidade cidade = new Cidade(linha);
-                Cidades.Incluir(cidade);
+                cidades.Incluir(cidade);
                 numeroDeCidades++;
             }
 
@@ -46,12 +47,18 @@ namespace apCaminhosMarte
             {
                 string linha = LeitorCaminho.ReadLine();
                 Caminho caminho = new Caminho(linha);
-                MatrizAdjacenteDeCaminhos[caminho.getIdDestino(), caminho.getIdDestino()] = caminho;
+                MatrizAdjacenteDeCaminhos[caminho.getIdOrigem(), caminho.getIdDestino()] = caminho;
             }
         }
         public Caminho[ ,] MatrizAdjacenteDeCaminhos
         {
             get => this.matrizAdjacenteDeCaminhos;
         }
+        /*public string GetNomeCidade(int idCidade)
+        {
+            if (idCidade < 0)
+                throw new Exception("O id da cidade nao pode ser menor que 0");
+            //cidades.
+        }*/
     }
 }
