@@ -56,9 +56,11 @@ namespace apCaminhosMarte
 
         public Caminho(Caminho caminho)
         {
-            caminho.idCidadeDestino = this.idCidadeDestino;
-            caminho.idCidadeOrigem = this.idCidadeOrigem;
-            caminho.distancia = this.tempo;
+            this.idCidadeOrigem = caminho.idCidadeOrigem;
+            this.idCidadeDestino = caminho.idCidadeDestino;
+            this.tempo = caminho.tempo;
+            this.distancia = caminho.distancia;
+            this.custo = caminho.custo;
         }
 
         public int getIdOrigem()
@@ -78,6 +80,10 @@ namespace apCaminhosMarte
         public int Tempo
         {
             get => this.tempo;
+        }
+        public Caminho Clone()
+        {
+            return new Caminho(this);
         }
     }
 }

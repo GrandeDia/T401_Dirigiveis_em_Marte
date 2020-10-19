@@ -284,7 +284,9 @@
             "17 - Rowan",
             "18 - Senzeni Na",
             "19 - Sheffield",
-            "20 - Temperança"});
+            "20 - Temperança",
+            "21 - Tharsis",
+            "22 - Underhill"});
             this.lsbDestino.Location = new System.Drawing.Point(1038, 129);
             this.lsbDestino.Name = "lsbDestino";
             this.lsbDestino.Size = new System.Drawing.Size(177, 84);
@@ -327,7 +329,9 @@
             "17 - Rowan",
             "18 - Senzeni Na",
             "19 - Sheffield",
-            "20 - Temperança"});
+            "20 - Temperança",
+            "21 - Tharsis",
+            "22 - Underhill"});
             this.lsbOrigem.Location = new System.Drawing.Point(1038, 25);
             this.lsbOrigem.Name = "lsbOrigem";
             this.lsbOrigem.Size = new System.Drawing.Size(177, 84);

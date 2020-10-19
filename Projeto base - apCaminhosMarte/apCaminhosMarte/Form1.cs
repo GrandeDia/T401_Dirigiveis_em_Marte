@@ -46,7 +46,8 @@ namespace apCaminhosMarte
                     int tempoPercursoAtual = 0;
                     foreach (Caminho cidade in caminho)
                     {
-                        dgvCaminhos[coluna, linha].Value = cidade;
+                        string nomeCidade = lsbOrigem.Items[cidade.getIdOrigem()].ToString();
+                        dgvCaminhos.Rows[linha].Cells[coluna].Value = nomeCidade;
                         coluna++;
                         tempoPercursoAtual += cidade.Tempo;
                     }
@@ -59,9 +60,10 @@ namespace apCaminhosMarte
                     linha++;
                 }
                 dgvMelhorCaminho.ColumnCount = menorCaminho.Count;
+                dgvMelhorCaminho.RowCount = 1;
                 foreach(Caminho cidade in menorCaminho)
                 {
-                    dgvMelhorCaminho[coluna, 0].Value = cidade;
+                    dgvMelhorCaminho.Rows[0].Cells[coluna].Value = lsbOrigem.Items[cidade.getIdOrigem()].ToString();
                     coluna++;
                 }
 

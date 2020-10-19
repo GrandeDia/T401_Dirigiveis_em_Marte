@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace apCaminhosMarte
             this.idDestino = idDestino;
             this.matrizAdjacenteDeCaminhos = matrizAdjacenteDeCaminhos;
             this.passamosAqui = new bool[matrizAdjacenteDeCaminhos.GetLength(0)];
-            caminhos = new List<List<Caminho>>();
+            this.caminhos = new List<List<Caminho>>();
             this.aux = new List<Caminho>();
         }
 
@@ -47,14 +48,14 @@ namespace apCaminhosMarte
                     aux.Add(caminho);
 
                     if (i == this.idDestino)
-                        caminhos.Add(aux);
+                        caminhos.Add(aux.Select(item => (Caminho) item.Clone()).ToList());
                     else
                     {
                         passamosAqui[caminho.getIdDestino()] = true;
                         EncontrarCaminhosRepeticao(caminho.getIdDestino());
                         passamosAqui[caminho.getIdDestino()] = false;
                     }
-                    aux.RemoveAt(aux.Count-1);
+                    aux.RemoveAt(aux.Count - 1);
                 }    
             }
         }
