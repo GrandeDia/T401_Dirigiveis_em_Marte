@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 
 namespace apCaminhosMarte
 {
@@ -13,7 +14,7 @@ namespace apCaminhosMarte
             caminhosEntreMarteArquivo;
 
         private Caminho[,] matrizAdjacenteDeCaminhos;
-        private ArvoreDeBusca<Cidade> cidades;
+        private ArvoreCidades cidades;
 
 
         public Marte(string cidadeMarteArquivo, string caminhosEntreMarteArquivo)
@@ -31,7 +32,7 @@ namespace apCaminhosMarte
             StreamReader LeitorCaminho = new StreamReader(caminhosEntreMarteArquivo);
 
             int numeroDeCidades = 0;
-            cidades = new ArvoreDeBusca<Cidade>();
+            cidades = new ArvoreCidades();
             while (!LeitorCidade.EndOfStream)
             {
                 string linha = LeitorCidade.ReadLine();
@@ -54,11 +55,10 @@ namespace apCaminhosMarte
         {
             get => this.matrizAdjacenteDeCaminhos;
         }
-        /*public string GetNomeCidade(int idCidade)
+        
+        public void DesenharCidades(PictureBox mapa, int width, int height)
         {
-            if (idCidade < 0)
-                throw new Exception("O id da cidade nao pode ser menor que 0");
-            //cidades.
-        }*/
+            cidades.DesenharCidades(mapa, width, height);
+        }
     }
 }

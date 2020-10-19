@@ -69,5 +69,12 @@ namespace apCaminhosMarte
 
             }
         }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            pbMapa.Image = Image.FromFile("mars_political_map_by_axiaterraartunion_d4vfxdf-pre.jpg");
+            Application.DoEvents();
+            marte.DesenharCidades(pbMapa, 4096, 2048);
+        }
     }
 }

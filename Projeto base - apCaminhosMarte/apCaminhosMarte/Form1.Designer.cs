@@ -368,6 +368,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Projeto 3 - busca de caminhos entre cidades";
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.tabControl1.ResumeLayout(false);
             this.tpRotas.ResumeLayout(false);
             this.tpRotas.PerformLayout();
