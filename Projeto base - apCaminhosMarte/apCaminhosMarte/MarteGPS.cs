@@ -51,9 +51,9 @@ namespace apCaminhosMarte
                         caminhos.Add(aux.Select(item => (Caminho) item.Clone()).ToList());
                     else
                     {
-                        passamosAqui[caminho.getIdDestino()] = true;
-                        EncontrarCaminhosRepeticao(caminho.getIdDestino());
-                        passamosAqui[caminho.getIdDestino()] = false;
+                        passamosAqui[caminho.GetIdDestino] = true;
+                        EncontrarCaminhosRepeticao(caminho.GetIdDestino);
+                        passamosAqui[caminho.GetIdDestino] = false;
                     }
                     aux.RemoveAt(aux.Count - 1);
                 }    

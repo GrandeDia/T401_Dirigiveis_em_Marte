@@ -10,7 +10,7 @@ namespace apCaminhosMarte
     class ArvoreDeBusca<Dado>  // : IComparable<NoArvore<Dado>> 
                                 where Dado : IComparable<Dado>, new()
     {
-        NoArvore<Dado> raiz,
+        protected NoArvore<Dado> raiz,
                        atual,       // indica o nó que está sendo visitado no momento
                        antecessor;  // indica o nó ancestral daquele que está sendo visitado no momento
         int quantosNos;

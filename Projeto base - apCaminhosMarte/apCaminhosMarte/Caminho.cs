@@ -63,14 +63,14 @@ namespace apCaminhosMarte
             this.custo = caminho.custo;
         }
 
-        public int getIdOrigem()
+        public int GetIdOrigem
         {
-            return idCidadeOrigem;
+            get => idCidadeOrigem;
         }
 
-        public int getIdDestino()
+        public int GetIdDestino
         {
-            return idCidadeDestino;
+            get => idCidadeDestino;
         }
         //concertar depois
         public int CompareTo(Caminho obj)

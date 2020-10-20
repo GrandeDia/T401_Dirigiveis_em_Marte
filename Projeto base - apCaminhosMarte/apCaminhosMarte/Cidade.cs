@@ -9,9 +9,9 @@ namespace apCaminhosMarte
 {
     class Cidade : IComparable<Cidade>
     {
-        int IdCidade, CoordenadaX, CoordenadaY;
+        int idCidade, coordenadaX, coordenadaY;
 
-        string NomeCidade;
+        string nomeCidade;
 
         public Cidade()
         {
@@ -22,32 +22,29 @@ namespace apCaminhosMarte
         {
             if (linha == null || linha == "")
                 throw new Exception("A linha passada nao pode ser nula ou vazia");
-            IdCidade = int.Parse(linha.Substring(0, 3).Trim());
-            NomeCidade = linha.Substring(3, 16).Trim();
-            CoordenadaX = int.Parse(linha.Substring(19, 5).Trim());
-            CoordenadaY = int.Parse(linha.Substring(24, 4).Trim());
+            idCidade = int.Parse(linha.Substring(0, 3).Trim());
+            nomeCidade = linha.Substring(3, 16).Trim();
+            coordenadaX = int.Parse(linha.Substring(19, 5).Trim());
+            coordenadaY = int.Parse(linha.Substring(24, 4).Trim());
         }
 
-        /*public Cidade(int IdCidade, int CoordenadaX, int CoordenadaY, string NomeCidade)
+        public Cidade(int idCidade)
         {
-            if (IdCidade <= 0)
-                throw new Exception("O Id da cidade não pode ser menor ou igual a 0");
+            if (idCidade < 0)
+                throw new Exception("id invalido");
+            this.idCidade = idCidade;
+            this.coordenadaX = 0;
+            this.coordenadaY = 0;
+            this.nomeCidade = "Cidade De Busca";
+        }
 
-            if (NomeCidade.Trim().Equals(""))
-                throw new Exception("O nome da cidade não pode ser menor que 0");
-
-            if (CoordenadaX <= 0)
-                throw new Exception("A cordenada de X não pode ser menor que 0");
-
-            if (CoordenadaY <= 0)
-                throw new Exception("A cordenada de Y não pode ser menor que 0");
-
-            this.IdCidade = IdCidade;
-            this.NomeCidade = NomeCidade;
-            this.CoordenadaX = CoordenadaX;
-            this.CoordenadaY = CoordenadaY;
-
-        }*/
+        private Cidade(int IdCidade, int coordenadaX, int coordenadaY, string nomeCidade)
+        {
+            this.idCidade = IdCidade;
+            this.nomeCidade = nomeCidade;
+            this.coordenadaX = coordenadaX;
+            this.coordenadaY = coordenadaY;
+        }
 
         public Cidade(Cidade cidade)
         {
@@ -55,28 +52,35 @@ namespace apCaminhosMarte
                 throw new Exception("Erro: Classe nulla");
             else
             {
-                cidade.IdCidade = this.IdCidade;
-                cidade.NomeCidade = this.NomeCidade;
-                cidade.CoordenadaX = this.CoordenadaX;
-                cidade.CoordenadaY = this.CoordenadaY;
+                this.idCidade = cidade.idCidade;
+                this.nomeCidade = cidade.nomeCidade;
+                this.coordenadaX = cidade.coordenadaX;
+                this.coordenadaY = cidade.coordenadaY;
             }
         }
 
-        public int GetIdCidade()
+        public int GetIdCidade
         {
-            return IdCidade;
+            get => idCidade;
         }
 
         //verificar depois
-        public bool Equals(Cidade cidade)
+        public bool Equals(Object obj)
         {
-            if (this.IdCidade != cidade.IdCidade)
+            if (obj == null)
                 return false;
-            if (!this.NomeCidade.Equals(cidade.NomeCidade))
+            if (obj == this)
+                return true;
+            if (!(obj.GetType() == this.GetType()))
                 return false;
-            if (this.CoordenadaX != cidade.CoordenadaX)
+            Cidade cidade = (Cidade)obj;
+            if (this.idCidade != cidade.idCidade)
                 return false;
-            if (this.CoordenadaY != cidade.CoordenadaY)
+            if (!this.nomeCidade.Equals(cidade.nomeCidade))
+                return false;
+            if (this.coordenadaX != cidade.coordenadaX)
+                return false;
+            if (this.coordenadaY != cidade.coordenadaY)
                 return false;
             return true;
         }
@@ -84,10 +88,7 @@ namespace apCaminhosMarte
         public override string ToString()
         {
             string ret = "";
-            ret += "O Id da cidade é " + IdCidade.ToString() + "\n";
-            ret += "O nome da cidade é " + NomeCidade + "\n";
-            ret += "A coordenada X é " + CoordenadaX.ToString() + "\n";
-            ret += "A coordenada Y é " + CoordenadaY.ToString();
+            ret = this.idCidade + " - " + this.nomeCidade;
             return ret;
         }
 
@@ -95,10 +96,10 @@ namespace apCaminhosMarte
         {
             int ret = 19;
 
-            ret = ret * 7 + IdCidade.GetHashCode();
-            ret = ret * 7 + NomeCidade.GetHashCode();
-            ret = ret * 7 + CoordenadaX.GetHashCode();
-            ret = ret * 7 + CoordenadaY.GetHashCode();
+            ret = ret * 7 + idCidade.GetHashCode();
+            ret = ret * 7 + nomeCidade.GetHashCode();
+            ret = ret * 7 + coordenadaX.GetHashCode();
+            ret = ret * 7 + coordenadaY.GetHashCode();
 
             if (ret < 0)
                 ret = -ret;
@@ -111,7 +112,7 @@ namespace apCaminhosMarte
             Cidade exemplar = null;
             try
             {
-                exemplar = new Cidade(this);
+                exemplar = new Cidade(this.idCidade, this.coordenadaX, this.coordenadaY, this.nomeCidade);
             }
             catch
             {}
@@ -121,14 +122,26 @@ namespace apCaminhosMarte
 
         public int CompareTo(Cidade cidade)
         {
-            if(this.IdCidade < cidade.IdCidade)
+            if (this.idCidade < cidade.idCidade)
                 return -1;
-
-            if (this.IdCidade > cidade.IdCidade)
-                return 1;
-
+            if (this.idCidade == cidade.idCidade)
+                return 0;
             return 1;
         }
 
+        public int GetCoordenadaX
+        {
+            get => this.coordenadaX;
+        }
+
+        public int GetCoordenadaY
+        {
+            get => this.coordenadaY;
+        }
+
+        public string GetNomeCidade
+        {
+            get => this.nomeCidade;
+        }
     }
 }

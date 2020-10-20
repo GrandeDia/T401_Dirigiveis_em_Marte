@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace apCaminhosMarte
 {
@@ -48,7 +49,7 @@ namespace apCaminhosMarte
             {
                 string linha = LeitorCaminho.ReadLine();
                 Caminho caminho = new Caminho(linha);
-                MatrizAdjacenteDeCaminhos[caminho.getIdOrigem(), caminho.getIdDestino()] = caminho;
+                MatrizAdjacenteDeCaminhos[caminho.GetIdOrigem, caminho.GetIdDestino] = caminho;
             }
         }
         public Caminho[ ,] MatrizAdjacenteDeCaminhos
@@ -59,6 +60,17 @@ namespace apCaminhosMarte
         public void DesenharCidades(PictureBox mapa, int width, int height)
         {
             cidades.DesenharCidades(mapa, width, height);
+        }
+
+        public Cidade GetCidade(int idCidade)
+        {
+            if (idCidade < 0)
+                throw new Exception("id invalido");
+            return cidades.BuscarCidade(idCidade);
+        }
+        public void DesenharArvore(Graphics grafico)
+        {
+            cidades.DesenharArvore(grafico);
         }
     }
 }
